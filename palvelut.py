@@ -1,6 +1,8 @@
 class Asiakas:
-    def __init__(self):
-        pass
+    def __init__(self, nimi, asiakasnro, ika):
+        self.nimi = nimi
+        self.asiakasnro = asiakasnro
+        self.ika = ika
 
     def luo_nro():
         pass
