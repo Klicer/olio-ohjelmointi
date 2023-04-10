@@ -21,3 +21,17 @@ class Palvelu:
 
     def tulosta_asiakkaat():
         pass
+
+
+class ParempiPalvelu:
+    def __init__():
+        pass
+
+    def lisaa_etu(str):
+        pass
+
+    def poista_etu(str):
+        pass
+
+    def tulosta_edut():
+        pass
