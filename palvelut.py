@@ -27,8 +27,8 @@ class Palvelu:
 
 
 class ParempiPalvelu:
-    def __init__():
-        pass
+    def __init__(self, edut):
+        self.edut = edut
 
     def lisaa_etu(str):
         pass
