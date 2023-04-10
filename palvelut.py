@@ -34,17 +34,18 @@ class Palvelu:
         self.tuotenimi = tuotenimi
         self.asiakkaat = []
 
-    def luo_asiakasrivi(Asiakas):
-        pass
+    def luo_asiakasrivi(self, asiakas):
+        return f'{asiakas.nimi} ({asiakas.asiakasnro}) on {asiakas.ika}-vuotias.'
 
-    def lisaa_asiakas(Asiakas):
-        pass
+    def lisaa_asiakas(self, asiakas):
+        self.asiakkaat += asiakas
 
-    def poista_asiakas(Asiakas):
-        pass
+    def poista_asiakas(self, asiakas):
+        self.asiakkaat -= asiakas
 
-    def tulosta_asiakkaat():
-        pass
+    def tulosta_asiakkaat(self):
+        for asiakas in self.asiakkaat:
+            print(self.luo_asiakasrivi(asiakas))
 
 
 class ParempiPalvelu(Palvelu):
