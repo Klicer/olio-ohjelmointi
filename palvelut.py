@@ -4,8 +4,29 @@ class Asiakas:
         self.ika = ika
         self.asiakasnro = self.luo_nro()
 
-    def luo_nro():
+    def luo_nro(self):
         pass
+
+    def set_nimi(self, nimi):
+        if nimi == False:
+            raise ValueError("Anna uusi nimi!")
+        else:
+            self.nimi = nimi
+
+    def get_nimi(self):
+        return self.nimi
+
+    def set_ika(self, ika):
+        if ika == False:
+            raise ValueError("Anna uusi ika!")
+        else:
+            self.ika = ika
+
+    def get_ika(self):
+        return self.ika
+
+    def get_asiakasnumero(self):
+        return f'xx-xxx-xxx'
 
 
 class Palvelu:
@@ -40,4 +61,7 @@ class ParempiPalvelu(Palvelu):
     def tulosta_edut():
         pass
 
+
 # Testit
+asiakas = Asiakas("jeps", 104)
+asiakas.set_nimi(False)
