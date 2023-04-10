@@ -1,17 +1,17 @@
 class Asiakas:
-    def __init__(self, nimi, asiakasnro, ika):
+    def __init__(self, nimi, ika):
         self.nimi = nimi
-        self.asiakasnro = asiakasnro
         self.ika = ika
+        self.asiakasnro = self.luo_nro()
 
     def luo_nro():
         pass
 
 
 class Palvelu:
-    def __init__(self, tuotenimi, asiakkaat):
+    def __init__(self, tuotenimi):
         self.tuotenimi = tuotenimi
-        self.asiakkaat = asiakkaat
+        self.asiakkaat = []
 
     def luo_asiakasrivi(Asiakas):
         pass
@@ -26,9 +26,10 @@ class Palvelu:
         pass
 
 
-class ParempiPalvelu:
-    def __init__(self, edut):
-        self.edut = edut
+class ParempiPalvelu(Palvelu):
+    def __init__(self, tuotenimi):
+        super().__init__(tuotenimi)
+        self.edut = []
 
     def lisaa_etu(str):
         pass
@@ -38,3 +39,5 @@ class ParempiPalvelu:
 
     def tulosta_edut():
         pass
+
+# Testit
