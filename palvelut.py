@@ -9,8 +9,9 @@ class Asiakas:
 
 
 class Palvelu:
-    def __init__(self):
-        pass
+    def __init__(self, tuotenimi, asiakkaat):
+        self.tuotenimi = tuotenimi
+        self.asiakkaat = asiakkaat
 
     def luo_asiakasrivi(Asiakas):
         pass
