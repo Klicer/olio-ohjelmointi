@@ -20,11 +20,11 @@ class Asiakas:
     """
 
     def __init__(self, nimi, ika):
-        self.nimi = nimi
-        self.ika = ika
-        self.asiakasnro = self.luo_nro()
+        self.__nimi = nimi
+        self.__ika = ika
+        self.__asiakasnro = self._luo_nro()
 
-    def luo_nro(self):
+    def _luo_nro(self):
         seg1 = f'{random.randint(0, 9)}{random.randint(0, 9)}'
         seg2 = f'{random.randint(0, 9)}{random.randint(0, 9)}{random.randint(0, 9)}'
         seg3 = f'{random.randint(0, 9)}{random.randint(0, 9)}{random.randint(0, 9)}'
@@ -36,22 +36,23 @@ class Asiakas:
         if not nimi:
             raise ValueError("Uusi nimi on annettava.")
         else:
-            self.nimi = nimi
+            self.__nimi = nimi
 
     def get_nimi(self):
-        return self.nimi
+        return self.__nimi
 
     def set_ika(self, ika):
         if not ika:
             raise ValueError("Uusi ika on annettava.")
         else:
-            self.ika = ika
+            self.__ika = ika
 
     def get_ika(self):
-        return self.ika
+        return self.__ika
 
     def get_asiakasnumero(self):
-        return f'xx-xxx-xxx'
+        nro = self.__asiakasnro
+        return f'{nro[0]}-{nro[1]}-{nro[2]}'
 
 
 class Palvelu:
@@ -71,24 +72,25 @@ class Palvelu:
 
     def __init__(self, tuotenimi):
         self.tuotenimi = tuotenimi
-        self.asiakkaat = []
+        self.__asiakkaat = []
 
-    def luo_asiakasrivi(self, asiakas):
-        return f'{asiakas.nimi} ({asiakas.asiakasnro[0]}-{asiakas.asiakasnro[1]}-{asiakas.asiakasnro[2]}) on {asiakas.ika}-vuotias.'
+    def _luo_asiakasrivi(self, asiakas):
+        nro = asiakas.get_asiakasnumero()
+        return f'{asiakas.get_nimi()} ({nro}) on {asiakas.get_ika()}-vuotias.'
 
     def lisaa_asiakas(self, asiakas):
         if not asiakas:
             raise ValueError("Uusi asiakas on annettava.")
         else:
-            self.asiakkaat.append(asiakas)
+            self.__asiakkaat.append(asiakas)
 
     def poista_asiakas(self, asiakas):
         self.asiakkaat.append(asiakas)
 
     def tulosta_asiakkaat(self):
         print(f'Tuotteen {self.tuotenimi} asiakkaat ovat:')
-        for asiakas in self.asiakkaat:
-            print(self.luo_asiakasrivi(asiakas))
+        for asiakas in self.__asiakkaat:
+            print(self._luo_asiakasrivi(asiakas))
         print()
 
 
@@ -109,16 +111,16 @@ class ParempiPalvelu(Palvelu):
 
     def __init__(self, tuotenimi):
         super().__init__(tuotenimi)
-        self.edut = []
+        self.__edut = []
 
     def lisaa_etu(self, edu):
-        self.edut.append(edu)
+        self.__edut.append(edu)
 
     def poista_etu(self, edu):
-        if edu in self.edut:
-            self.edut.remove(edu)
+        if edu in self.__edut:
+            self.__edut.remove(edu)
 
     def tulosta_edut(self):
         print(f'Tuotteen {self.tuotenimi} edut ovat:')
-        for edu in self.edut:
+        for edu in self.__edut:
             print(edu)
